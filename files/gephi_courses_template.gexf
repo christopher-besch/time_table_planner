@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gexf xmlns="http://www.gexf.net/1.2draft" version="1.2" xmlns:viz="http://www.gexf.net/1.2draft/viz" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gexf.net/1.2draft http://www.gexf.net/1.2draft/gexf.xsd">
+    <meta lastmodifieddate="{{ today }}">
+        <creator>Christopher Besch</creator>
+        <description>Student Network</description>
+    </meta>
+    <graph defaultedgetype="undirected">
+        <attributes class="node">
+            <attribute id="teacher" title="teacher" type="string" />
+            <attribute id="amount_students" title="amount_students" type="integer" />
+            <attribute id="weekly_periods" title="weekly_periods" type="integer" />
+        </attributes>
+        <nodes count="{{ courses|length }}">
+            {% for course in courses %}
+            <node id="{{ course.id }}" label="{{ course.label }}">
+                <attvalues>
+                    <attvalue for="teacher" value="{{ course.teacher }}" />
+                    <attvalue for="amount_students" value="{{ course.amount_students }}" />
+                    <attvalue for="weekly_periods" value="{{ course.weekly_periods }}" />
+                </attvalues>
+            </node>
+            {% endfor %}
+        </nodes>
+        <edges count="{{ edges|length }}">
+            {% for edge in edges %}
+            <edge id="{{ edge.id }}" source="{{ edge.source }}" target="{{ edge.target }}" weight="{{ edge.weight }}" />
+            {% endfor %}
+        </edges>
+    </graph>
+</gexf>
