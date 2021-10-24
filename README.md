@@ -14,7 +14,7 @@ It has been created to prove that a simple python program can be used to produce
 
 ## Privacy
 
-To ensure the privacy of the students this program has been tested with no input or output data is contained within this repository.
-Therefor you can't easily test this program.
+To ensure the privacy of the students the input and output data used to test this project is not contained within this repository.
+Therefore you can't easily test this program yourself.
 Sorry🙁
 
